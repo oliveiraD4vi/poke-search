@@ -82,10 +82,17 @@ body {
 
 #main-wrapper {
   display: grid;
-  gap: 2em;
+  gap: 1em;
 
   main {
     display: grid;
     place-items: center;
+    min-height: 70vh;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  #app {
+    width: 50%;
   }
 }

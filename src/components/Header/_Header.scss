@@ -2,10 +2,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 10vh;
 
   .menu-logo {
+    height: 100%;
     img {
-      width: 5rem;
+      height: 80%;
     }
   }
 
@@ -13,28 +15,25 @@
     list-style: none;
     display: grid;
     grid-template-columns: 33% 33% 33%;
-    gap: 1em;
+    gap: 2em;
     margin: 0;
 
     .menu-item {
       a {
         text-decoration: none;
+        font-size: 18px;
         font-weight: 600;
-        color: $white-900;
+        color: $grey-300;
         transition: all 0.2s ease-in-out;
 
         &:hover {
-          color: $grey-500;
+          color: $white-900;
         }
 
         &:focus {
-          color: $white-900;
+          color: $grey-300;
         }
       }
-    }
-
-    &.show {
-      display: block;
     }
   }
 
@@ -79,6 +78,7 @@
     .menu-items {
       display: flex;
       flex-direction: column;
+      gap: 1em;
 
       .menu-item {
         width: 100%;
