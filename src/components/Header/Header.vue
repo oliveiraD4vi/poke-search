@@ -1,7 +1,12 @@
 <template>
   <nav class="menu">
     <div class="menu-logo">
-      <a href="#">Logo</a>
+      <router-link :to="{ name: 'home' }">
+        <img
+          src="@/assets/png/logo-pokemon.png"
+          alt="pokemon logo"
+        >
+      </router-link>
     </div>
     <ul class="menu-items">
       <li
@@ -19,7 +24,7 @@
       @click="toggleMenu"
     >
       <img
-        src="@/assets/svg/hamburger-menu.svg"
+        src="@/assets/svg/hamburger-menu-white.svg"
         alt="menu icon"
       >
     </div>

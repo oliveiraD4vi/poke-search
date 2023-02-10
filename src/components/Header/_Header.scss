@@ -2,32 +2,33 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px;
 
   .menu-logo {
-    a {
-      font-size: 24px;
-      font-weight: bold;
-      text-decoration: none;
-      color: #333;
+    img {
+      width: 5rem;
     }
   }
 
   .menu-items {
     list-style: none;
-    display: flex;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    gap: 1em;
     margin: 0;
 
     .menu-item {
-      margin-left: 20px;
-
       a {
         text-decoration: none;
-        color: #333;
-        font-size: 18px;
+        font-weight: 600;
+        color: $white-900;
+        transition: all 0.2s ease-in-out;
 
         &:hover {
-          color: #555;
+          color: $grey-500;
+        }
+
+        &:focus {
+          color: $white-900;
         }
       }
     }
@@ -40,19 +41,10 @@
   .menu-hamburger {
     display: none;
     cursor: pointer;
-    font-size: 24px;
-    color: #333;
-
-    & i {
-      transition: all 0.2s ease-in-out;
-    }
-
-    &:hover i {
-      color: #555;
-    }
+    transition: all 0.2s ease-in-out;
   }
 
-  @media (max-width: 992px) {
+  @media (max-width: 768px) {
     .menu-items {
       display: none;
     }
