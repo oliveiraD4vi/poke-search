@@ -3,7 +3,7 @@
     <div class="menu-logo">
       <router-link :to="{ name: 'home' }">
         <img
-          src="@/assets/png/logo-pokemon.png"
+          src="../../assets/png/logo-pokemon.png"
           alt="pokemon logo"
         >
       </router-link>
@@ -24,7 +24,7 @@
       @click="handleToggle(true)"
     >
       <img
-        src="@/assets/svg/hamburger-menu-white.svg"
+        src="../../assets/svg/hamburger-menu-white.svg"
         alt="menu icon"
       >
     </div>
@@ -37,7 +37,7 @@
       <div class="menu-modal">
         <button class="close-btn">
           <img
-            src="@/assets/svg/close-x-black.svg"
+            src="../../assets/svg/close-x.svg"
             alt="close menu modal button"
             @click="handleToggle(false)"
           >
@@ -67,6 +67,7 @@ import { ref } from 'vue';
 const items = [
   { text: 'Home', route: 'home' },
   { text: 'About', route: 'about' },
+  { text: 'See all', route: 'listall' },
 ];
 
 const showModal = ref(false);

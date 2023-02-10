@@ -16,7 +16,7 @@
           target="_blank"
         >
           <img
-            src="@/assets/svg/logo-github.svg"
+            src="../../assets/svg/logo-github.svg"
             alt="github logo"
           >
         </a>
@@ -28,7 +28,7 @@
           target="_blank"
         >
           <img
-            src="@/assets/svg/logo-linkedin.svg"
+            src="../../assets/svg/logo-linkedin.svg"
             alt="linkedin logo"
           >
         </a>
