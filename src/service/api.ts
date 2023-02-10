@@ -9,6 +9,14 @@ const api = axios.create({
 });
 
 export const fetch = {
+  getAllPokemon: async () => {
+    try {
+      const { data } = await api.get('/pokemon');
+      return { error: false, data };
+    } catch (error) {
+      return { error: true, data: error };
+    }
+  },
   getPokemon: async (pokemon: string) => {
     try {
       const { data } = await api.get(`/pokemon/${pokemon}`);
