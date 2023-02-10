@@ -52,7 +52,21 @@ table {
 
 // Background animation setup
 body {
-  background: linear-gradient(to right, #1e5799 0%,#2ce0bf 19%,#76dd2c 40%,#dba62b 60%,#e02cbf 83%,#1e5799 100%);
+  overflow-x: hidden;
+  background: linear-gradient(
+    to right,
+    #ff4800 0%,
+    #ff5400 10%,
+    #ff6000 20%,
+    #ff6d00 30%,
+    #ff7900 40%,
+    #ff8500 50%,
+    #ff9100 60%,
+    #ff9e00 70%,
+    #ffaa00 80%,
+    #ffb600 90%,
+    #ff4800 100%
+  );
   background-size: $background-width 100%;
   animation: gradient-background 120s linear infinite;
 }

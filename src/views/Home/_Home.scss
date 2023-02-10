@@ -3,6 +3,7 @@ section {
   height: 50%;
   display: grid;
   place-items: center;
+  padding: 20px;
 
   /* From https://css.glass */
   background: rgba(255, 255, 255, 0.2);
@@ -17,16 +18,30 @@ section {
     place-items: center;
     gap: 1em;
     width: 100%;
+    text-align: center;
+
+    h1 {
+      font-size: 24px;
+    }
+
+    h2 {
+      font-size: 16px;
+    }
+
+    p {
+      font-size: 12px;
+    }
 
     .search-container {
       display: flex;
       align-items: center;
-      background-color: transparent;
+      background-color: $white-900;
       border: solid 1px $white-900;
-      border-radius: 15px;
+      border-radius: 5px;
       justify-content: space-between;
       width: 60%;
       padding: 5px 10px;
+      margin: 20px 0;
 
       #search-input {
         float: left;
@@ -37,7 +52,7 @@ section {
         border: none;
         width: 80%;
         font-weight: bold;
-        color: $white-900;
+        color: $title-color;
 
         &:focus {
           box-shadow: 0 0 0 0;
@@ -46,7 +61,7 @@ section {
         }
 
         &::placeholder {
-          color: $white-900;
+          color: $title-color;
         }
       }
     }
@@ -58,6 +73,34 @@ section {
 
       &:disabled {
         cursor: not-allowed;
+      }
+    }
+
+    @media only screen and (min-width: 768px) {
+      h1 {
+        font-size: 32px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+    }
+
+    @media only screen and (min-width: 992px) {
+      h1 {
+        font-size: 42px;
+      }
+
+      h2 {
+        font-size: 32px;
+      }
+
+      p {
+        font-size: 18px;
       }
     }
   }
