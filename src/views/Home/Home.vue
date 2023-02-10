@@ -1,43 +1,75 @@
 <template>
-  <section>
-    <form @submit.prevent="onSubmit">
-      <h1>Hello, there!</h1>
-      <h2>Here you can search for any pokémon you want</h2>
+  <div class="home-container">
+    <section>
+      <form @submit.prevent="onSubmit">
+        <h1>Hello, there!</h1>
+        <h2>Search for the name:</h2>
 
-      <div class="search-container">
-        <input
-          id="search-input"
-          v-model="query"
-          type="text"
-          placeholder="Pikachu..."
-        >
-        <button
-          id="submit-button"
-          :disabled="query === ''"
-          type="submit"
-        >
-          <img
-            id="search-icon"
-            src="@/assets/svg/search-black.svg"
-            alt="search"
+        <div class="search-container">
+          <input
+            id="search-input"
+            v-model="query"
+            type="text"
+            placeholder="pikachu..."
           >
-        </button>
-      </div>
+          <button
+            id="submit-button"
+            :disabled="query === ''"
+            type="submit"
+          >
+            <img
+              id="search-icon"
+              src="@/assets/svg/search-black.svg"
+              alt="search"
+            >
+          </button>
+        </div>
+      </form>
+    </section>
 
-      <p>Just remenber that your input should be exatly the name of the pokémon</p>
-    </form>
-  </section>
+    <p
+      v-if="error"
+      class="error-message"
+    >
+      <span>Sorry! We didn't find anything...</span>
+    </p>
+
+    <ul
+      v-else
+      class="listing-container"
+    >
+      <li
+        v-for="(item, index) in items"
+        :key="index"
+        class="item"
+      >
+        {{ item.name }}
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { fetch } from "../../service/api";
+import { fetch } from '../../service/api';
+import { Pokemon } from '../../types/Pokemon';
 
-const query = ref('');
+const error = ref<boolean>(false);
+const query = ref<string>('');
+const items = ref<Pokemon[]>();
 
 const onSubmit = async () => {
-  const data = await fetch.getPokemon(query.value);
-  console.log(data);
+  await fetch.getPokemon(query.value.toLowerCase())
+  .then((response) => {
+    if (!response.error) {
+      error.value = false;
+      items.value = [
+        response.data,
+      ];
+    } else {
+      error.value = true;
+    }
+  });
 }
 </script>
 

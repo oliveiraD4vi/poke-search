@@ -12,9 +12,17 @@ export const fetch = {
   getPokemon: async (pokemon: string) => {
     try {
       const { data } = await api.get(`/pokemon/${pokemon}`);
-      return data;
+      return { error: false, data };
     } catch (error) {
-      return error;
+      return { error: true, data: error };
+    }
+  },
+  getEvolutionChain: async (id: number) => {
+    try {
+      const { data } = await api.get(`/evolution-chain/${id}`);
+      return { error: false, data };
+    } catch (error) {
+      return { error: true, data: error };
     }
   },
 };
