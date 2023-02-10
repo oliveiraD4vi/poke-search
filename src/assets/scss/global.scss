@@ -68,7 +68,7 @@ body {
     #ff4800 100%
   );
   background-size: $background-width 100%;
-  animation: gradient-background 120s linear infinite;
+  animation: gradient-background 60s linear infinite;
 }
 
 @keyframes gradient-background {

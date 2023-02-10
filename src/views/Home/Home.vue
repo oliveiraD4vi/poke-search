@@ -19,7 +19,7 @@
           >
             <img
               id="search-icon"
-              src="@/assets/svg/search-black.svg"
+              src="../../assets/svg/search-black.svg"
               alt="search"
             >
           </button>

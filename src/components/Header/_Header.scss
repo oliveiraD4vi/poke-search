@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 10px;
   height: 10vh;
 
   .menu-logo {
@@ -15,7 +16,7 @@
     list-style: none;
     display: grid;
     grid-template-columns: 33% 33% 33%;
-    gap: 2em;
+    gap: 0.5em;
     margin: 0;
 
     .menu-item {
@@ -67,10 +68,11 @@
     gap: 15px;
 
     /* From https://css.glass */
-    background: rgba(255, 255, 255, 0.4);
+    background: rgba(34, 34, 34, 0.5);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(2px);
-    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(8.4px);
+    -webkit-backdrop-filter: blur(8.4px);
+    border: 1px solid rgba(34, 34, 34, 0.32);
 
     .close-btn {
       background-color: transparent;
@@ -90,18 +92,6 @@
         width: 100%;
         border-bottom: 1px solid $grey-500;
         padding: 5px 15px;
-
-        a {
-          color: $title-color;
-
-          &:hover {
-            color: $text-color;
-          }
-
-          &:focus {
-            color: $title-color;
-          }
-        }
       }
     }
   }
