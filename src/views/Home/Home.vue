@@ -43,7 +43,7 @@
         :key="index"
         class="item"
       >
-        {{ item.name }}
+        <Card :data="item" />
       </li>
     </ul>
   </div>
@@ -53,6 +53,8 @@
 import { ref } from 'vue';
 import { fetch } from '../../service/api';
 import { Pokemon } from '../../types/Pokemon';
+
+import Card from '../../components/Card/Card.vue';
 
 const error = ref<boolean>(false);
 const query = ref<string>('');
