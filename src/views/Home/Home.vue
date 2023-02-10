@@ -2,7 +2,7 @@
   <section>
     <form @submit.prevent="onSubmit">
       <h1>Hello, there!</h1>
-      <h2>Here, you can search for any pokémon you want</h2>
+      <h2>Here you can search for any pokémon you want</h2>
 
       <div class="search-container">
         <input
@@ -31,11 +31,13 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { fetch } from "../../service/api";
 
 const query = ref('');
 
-const onSubmit = (): void => {
-  console.log(query.value);
+const onSubmit = async () => {
+  const data = await fetch.getPokemon(query.value);
+  console.log(data);
 }
 </script>
 
