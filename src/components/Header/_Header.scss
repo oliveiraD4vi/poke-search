@@ -1,0 +1,64 @@
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+
+  .menu-logo {
+    a {
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+      color: #333;
+    }
+  }
+
+  .menu-items {
+    list-style: none;
+    display: flex;
+    margin: 0;
+
+    .menu-item {
+      margin-left: 20px;
+
+      a {
+        text-decoration: none;
+        color: #333;
+        font-size: 18px;
+
+        &:hover {
+          color: #555;
+        }
+      }
+    }
+
+    &.show {
+      display: block;
+    }
+  }
+
+  .menu-hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #333;
+
+    & i {
+      transition: all 0.2s ease-in-out;
+    }
+
+    &:hover i {
+      color: #555;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .menu-items {
+      display: none;
+    }
+
+    .menu-hamburger {
+      display: block;
+    }
+  }
+}

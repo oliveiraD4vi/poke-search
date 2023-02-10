@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 
+// Reseting CSS properties
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -47,4 +48,31 @@ q:before, q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+// Background animation setup
+body {
+  background: linear-gradient(to right, #1e5799 0%,#2ce0bf 19%,#76dd2c 40%,#dba62b 60%,#e02cbf 83%,#1e5799 100%);
+  background-size: $background-width 100%;
+  animation: gradient-background 120s linear infinite;
+}
+
+@keyframes gradient-background {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: $background-width;
+  }
+}
+
+// Layout setup
+body {
+  display: grid;
+  place-items: center;
+}
+
+#app,
+#main-wrapper {
+  width: 100%;
 }
