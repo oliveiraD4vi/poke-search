@@ -2,57 +2,110 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px;
+  height: 10vh;
 
   .menu-logo {
-    a {
-      font-size: 24px;
-      font-weight: bold;
-      text-decoration: none;
-      color: #333;
+    height: 100%;
+    img {
+      height: 80%;
     }
   }
 
   .menu-items {
     list-style: none;
-    display: flex;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    gap: 2em;
     margin: 0;
 
     .menu-item {
-      margin-left: 20px;
-
       a {
         text-decoration: none;
-        color: #333;
         font-size: 18px;
+        font-weight: 600;
+        color: $grey-300;
+        transition: all 0.2s ease-in-out;
 
         &:hover {
-          color: #555;
+          color: $white-900;
+        }
+
+        &:focus {
+          color: $grey-300;
         }
       }
-    }
-
-    &.show {
-      display: block;
     }
   }
 
   .menu-hamburger {
     display: none;
     cursor: pointer;
-    font-size: 24px;
-    color: #333;
+    transition: all 0.2s ease-in-out;
+  }
 
-    & i {
-      transition: all 0.2s ease-in-out;
+  .menu-modal-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 98;
+    width: 100vw;
+    height: 100vh;
+    background-color:rgba(0,0,0,0.5);
+  }
+
+  .menu-modal {
+    z-index: 99;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: $white-900;
+    padding: 10px 0;
+    width: 50vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+
+    .close-btn {
+      background-color: transparent;
+      border: none;
+      padding: 0 15px;
+      display: flex;
+      justify-content: right;
     }
 
-    &:hover i {
-      color: #555;
+    .menu-items {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+
+      .menu-item {
+        width: 100%;
+        border-bottom: 1px solid $grey-500;
+        padding: 5px 15px;
+
+        a {
+          color: $title-color;
+
+          &:hover {
+            color: $text-color;
+          }
+
+          &:focus {
+            color: $title-color;
+          }
+        }
+      }
     }
   }
 
-  @media (max-width: 992px) {
+  @media (max-width: 768px) {
     .menu-items {
       display: none;
     }
