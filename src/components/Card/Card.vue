@@ -22,6 +22,17 @@
           </dt>
         </dl>
       </div>
+
+      <button
+        class="modal-button"
+        @click="onClick"
+      >
+        <img
+          src="../../assets/svg/details-icon.svg"
+          alt="details icon"
+        >
+        more details
+      </button>
     </section>
   </div>
 </template>
@@ -29,7 +40,10 @@
 <script setup lang="ts">
 import { PropType, ref } from 'vue';
 import { Pokemon } from '../../types/Pokemon';
+import { PokemonStore } from '../../store/PokemonStore';
+import { formatPokemonId } from '../../service/utils';
 
+const store = PokemonStore();
 const skeleton = ref<boolean>(true);
 
 const props = defineProps({
@@ -39,20 +53,20 @@ const props = defineProps({
   },
 });
 
-const URL = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${props.data.id}.png`;
+const emit = defineEmits<{
+  (e: 'close', value: boolean): void
+}>();
 
-const formatPokemonId = (id: number) => {
-  if (id < 10) {
-    return `#00${id}`;
-  } else if (id >= 10 && id < 99) {
-    return `#0${id}`;
-  } else {
-    return `#${id}`;
-  }
-};
+const URL = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${props.data.id}.png`;
 
 const onLoad = (): void => {
   skeleton.value = false;
+};
+
+const onClick = (): void => {
+  store.setUrl(URL);
+  store.setData(props.data);
+  emit('close', true);
 };
 </script>
 

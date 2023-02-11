@@ -6,17 +6,32 @@
         :key="index"
         class="item"
       >
-        <Card :data="item" />
+        <Card
+          :data="item"
+          @close="modalVisible"
+        />
       </li>
     </ul>
+
+    <Modal
+      v-if="showModal"
+      @close="modalVisible"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-import { PropType } from 'vue';
+import { PropType, ref } from 'vue';
 import { Pokemon } from '../../types/Pokemon';
 
-import Card from '../../components/Card/Card.vue';
+import Modal from '../Modal/Modal.vue';
+import Card from '../Card/Card.vue';
+
+const showModal = ref<boolean>(false);
+
+const modalVisible = (value: boolean) => {
+  showModal.value = value;
+};
 
 defineProps({
   items: {

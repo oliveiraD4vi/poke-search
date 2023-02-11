@@ -15,7 +15,7 @@
   .menu-items {
     list-style: none;
     display: flex;
-    gap: 0.5em;
+    gap: 1em;
     margin: 0;
 
     .menu-item {
@@ -44,9 +44,10 @@
   }
 
   .menu-modal-wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 98;
     width: 100vw;
     height: 100vh;
