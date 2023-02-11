@@ -66,7 +66,6 @@ import { ref } from 'vue';
 
 const items = [
   { text: 'Home', route: 'home' },
-  { text: 'About', route: 'about' },
   { text: 'See all', route: 'listall' },
 ];
 
