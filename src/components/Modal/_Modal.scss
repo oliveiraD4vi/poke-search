@@ -1,0 +1,59 @@
+.wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 98;
+  width: 100vw;
+  height: 100vh;
+  background-color:rgba(0,0,0,0.5);
+}
+.modal {
+  z-index: 99;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  width: 80vw;
+  min-height: 200px;
+  border-radius: 5px;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+
+  /* From https://css.glass */
+  background: rgba(34, 34, 34, 0.5);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.4px);
+  -webkit-backdrop-filter: blur(8.4px);
+  border: 1px solid rgba(34, 34, 34, 0.32);
+
+  .body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    header {
+      display: flex;
+      justify-content: right;
+      padding: 15px;
+
+      .raw-image {
+        height: 100px;
+        position: absolute;
+        top: -60px;
+        left: 0;
+        z-index: 2;
+      }
+
+      .close-btn {
+        background-color: transparent;
+        border: none;
+        padding: 0 15px;
+        cursor: pointer;
+      }
+    }
+
+    .content {
+      height: 100%;
+    }
+  }
+}

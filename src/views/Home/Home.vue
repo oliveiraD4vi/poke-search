@@ -40,6 +40,11 @@
       v-else-if="items"
       :items="items"
     />
+
+    <Modal
+      v-if="showModal"
+      @close="modalVisible"
+    />
   </div>
 </template>
 
@@ -51,12 +56,18 @@ import { Pokemon } from '../../types/Pokemon';
 
 import Render from '../../components/Render/Render.vue';
 import Loading from '../../components/Loading/Loading.vue';
+import Modal from '../../components/Modal/Modal.vue';
 
 const error = ref<boolean>(false);
 const query = ref<string>('');
 const items = ref<Pokemon[]>();
 const loading = ref<boolean>(false);
 const disabled = ref<boolean>(false);
+const showModal = ref<boolean>(false);
+
+const modalVisible = (value: boolean) => {
+  showModal.value = value;
+};
 
 const getEvolutionChain = async (url: string) => {
   const response = await fetch.get(url);
