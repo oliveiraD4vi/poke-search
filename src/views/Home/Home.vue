@@ -34,18 +34,10 @@
       <span>Sorry! We didn't find anything...</span>
     </p>
 
-    <ul
-      v-else
-      class="listing-container"
-    >
-      <li
-        v-for="(item, index) in items"
-        :key="index"
-        class="item"
-      >
-        {{ item.name }}
-      </li>
-    </ul>
+    <Render
+      v-if="items"
+      :items="items"
+    />
   </div>
 </template>
 
@@ -53,6 +45,8 @@
 import { ref } from 'vue';
 import { fetch } from '../../service/api';
 import { Pokemon } from '../../types/Pokemon';
+
+import Render from '../../components/Render/Render.vue';
 
 const error = ref<boolean>(false);
 const query = ref<string>('');
@@ -67,6 +61,7 @@ const onSubmit = async () => {
         response.data,
       ];
     } else {
+      items.value = [];
       error.value = true;
     }
   });

@@ -86,6 +86,19 @@ body {
   place-items: center;
   padding: 20px 25px;
   color: $white-900;
+
+  &::-webkit-scrollbar-track {
+    background-color: $grey-500;
+  }
+
+  &::-webkit-scrollbar {
+    width: 10px;
+    background: $grey-500;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $grey-900;
+  }
 }
 
 #app,
