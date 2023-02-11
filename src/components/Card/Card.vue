@@ -3,8 +3,10 @@
     <section class="content">
       <img
         class="raw-image"
+        :class="{ skeleton: skeleton }"
         :src="URL"
         :alt="data.name"
+        @load="onLoad"
       >
 
       <div class="info">
@@ -25,8 +27,10 @@
 </template>
 
 <script setup lang="ts">
-import { PropType } from 'vue';
+import { PropType, ref } from 'vue';
 import { Pokemon } from '../../types/Pokemon';
+
+const skeleton = ref<boolean>(true);
 
 const props = defineProps({
   data: {
@@ -45,6 +49,10 @@ const formatPokemonId = (id: number) => {
   } else {
     return `#${id}`;
   }
+};
+
+const onLoad = (): void => {
+  skeleton.value = false;
 };
 </script>
 
