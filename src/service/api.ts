@@ -17,9 +17,9 @@ export const fetch = {
       return { error: true, data: error };
     }
   },
-  getAllPokemon: async () => {
+  getAllPokemon: async (offset: number, limit: number) => {
     try {
-      const { data } = await api.get('/pokemon');
+      const { data } = await api.get(`/pokemon?offset=${offset}&limit=${limit}`);
       return { error: false, data };
     } catch (error) {
       return { error: true, data: error };
