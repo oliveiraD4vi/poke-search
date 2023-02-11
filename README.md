@@ -4,7 +4,13 @@
 
 ## Good to know
 
-This project uses [Commitzen](https://github.com/commitizen/cz-cli) to ensure that git commit messages are formatted in a consistent way.
+This project uses [Commitzen](https://github.com/commitizen/cz-cli) to ensure that git commit messages are formatted in a consistent way. Here is the stack used for this project:
+
+- [Vite](https://vitejs.dev/)
+- [Vue](https://vuejs.org/)
+- [Typescript](https://www.typescriptlang.org/)
+- [SCSS](https://sass-lang.com/)
+- [PokéAPI](https://pokeapi.co/)
 
 To clone and run this application, you'll need [Git](https://git-scm.com) installed on your computer.
 
@@ -29,3 +35,11 @@ yarn dev
 npm run dev
 ```
 Doing that you will have the app running in development mode.
+
+----
+
+## Features
+
+- Search Pokémon for name
+- Search page by page in a list of all pokémons
+- See the Pokémon information on click
