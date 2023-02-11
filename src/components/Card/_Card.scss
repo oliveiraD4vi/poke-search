@@ -1,0 +1,54 @@
+.card-container {
+  height: 250px;
+  width: auto;
+
+  .content {
+    height: 150px;
+    padding: 50px 20px 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+
+    /* From https://css.glass */
+    background: rgba(34, 34, 34, 0.68);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(34, 34, 34, 0.3);
+
+    .raw-image {
+      height: 100px;
+      position: absolute;
+      top: -60px;
+      right: 0;
+      z-index: 2;
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-top: 10px;
+
+      &::first-letter {
+        text-transform: uppercase;
+      }
+    }
+
+    .types {
+      margin: 15px 0;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+
+      dt {
+        padding: 6px 10px;
+        font-size: 12px;
+        border: 1px solid $white-900;
+        border-radius: 4px;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
