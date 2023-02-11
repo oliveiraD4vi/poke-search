@@ -1,6 +1,27 @@
 import { Pokemon } from "../types/Pokemon";
 import { fetch } from "./api";
 
+// Convert from decimeters to meters
+export function decimetersToMeters(decimeters: number): number {
+  return decimeters / 10;
+}
+
+// Convert from hectograms to kilograms
+export function hectogramsToKilograms(hectograms: number): number {
+  return hectograms / 10;
+}
+
+// Returns a string with the ID formated
+export const formatPokemonId = (id: number) => {
+  if (id < 10) {
+    return `#00${id}`;
+  } else if (id >= 10 && id < 99) {
+    return `#0${id}`;
+  } else {
+    return `#${id}`;
+  }
+};
+
 // Returns the data of the pokémons in th list
 export async function getPokemonData(names: string[]): Promise<Pokemon[]> {
   const pokemonData: Pokemon[] = [];

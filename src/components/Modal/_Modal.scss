@@ -32,6 +32,7 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    color: $text-color;
 
     header {
       display: flex;
@@ -41,7 +42,7 @@
       .raw-image {
         height: 200px;
         position: absolute;
-        top: -150px;
+        top: -130px;
         left: 20px;
         z-index: 2;
       }
@@ -57,11 +58,98 @@
     .content {
       height: 100%;
       padding: 25px;
+      display: flex;
+      flex-direction: column;
+
+      #left {
+        text-align: center;
+
+        .calc-container {
+          margin: 10px 0;
+          display: grid;
+          grid-template-columns: 50% 50%;
+          place-items: center;
+
+          .calc-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+
+            img {
+              width: 16px;
+            }
+          }
+        }
+
+        .types {
+          margin: 15px 0;
+          display: flex;
+          justify-content: center;
+          gap: 10px;
+
+          dt {
+            padding: 6px 10px;
+            font-size: 12px;
+            border: 1px solid $black-900;
+            border-radius: 4px;
+            text-transform: uppercase;
+          }
+        }
+      }
+
+      #right {
+        text-align: center;
+
+        .stats-container {
+          text-align: left;
+          display: grid;
+          gap: 0.5em;
+        }
+      }
+
+      h1 {
+        font-size: 28px;
+        margin-top: 10px;
+
+        &::first-letter {
+          text-transform: uppercase;
+        }
+      }
     }
   }
 
   @media only screen and (min-width: 768px) {
     width: 60%;
+
+    .body {
+      .content {
+        display: grid;
+        grid-template-columns: 20% 60%;
+        gap: 2em;
+        text-align: left;
+
+        #left {
+          text-align: left;
+
+          .calc-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .calc-item {
+              width: 100%;
+              justify-content: left;
+            }
+          }
+        }
+
+        #right {
+          text-align: left;
+          padding-left: 20px;
+          border-left: 1px solid $black-900;
+        }
+      }
+    }
   }
 
   @media only screen and (min-width: 992px) {

@@ -10,3 +10,19 @@ $black-900: #000000;
 $grey-900: #485156;
 $grey-500: #d9d9d9;
 $grey-300: #f0f0f0;
+
+// Gradient
+$background: linear-gradient(
+  to right,
+  #ff4800 0%,
+  #ff5400 10%,
+  #ff6000 20%,
+  #ff6d00 30%,
+  #ff7900 40%,
+  #ff8500 50%,
+  #ff9100 60%,
+  #ff9e00 70%,
+  #ffaa00 80%,
+  #ffb600 90%,
+  #ff4800 100%
+);

@@ -4,13 +4,13 @@ import { Pokemon } from "../types/Pokemon";
 export const PokemonStore = defineStore("pokemon", {
   state: () => {
     return {
-      data: () => ({} as Pokemon),
+      data: {} as Pokemon,
       url: "",
     };
   },
   actions: {
     setData(newState: Pokemon) {
-      Object.assign(this.data, newState);
+      this.data = newState;
     },
     setUrl(newState: string) {
       this.url = newState;

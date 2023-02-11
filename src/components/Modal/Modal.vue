@@ -19,13 +19,55 @@
             @click="$emit('close', false)"
           >
             <img
-              src="../../assets/svg/close-x.svg"
+              src="../../assets/svg/close-x-black.svg"
               alt="close icon"
             >
           </button>
         </header>
         <div className="content">
-          {{ store.data.name }}
+          <section id="left">
+            <h2>{{ formatPokemonId(store.data.id) }}</h2>
+            <h1>{{ store.data.name }}</h1>
+
+            <ul class="calc-container">
+              <li class="calc-item">
+                <img
+                  src="../../assets/svg/ruler-icon.svg"
+                  alt="height icon"
+                >
+                {{ decimetersToMeters(store.data.height) + ' m' }}
+              </li>
+              <li class="calc-item">
+                <img
+                  src="../../assets/svg/barbell-icon.svg"
+                  alt="weight icon"
+                >
+                {{ hectogramsToKilograms(store.data.weight) + ' kg' }}
+              </li>
+            </ul>
+
+            <dl class="types">
+              <dt
+                v-for="(item, index) in store.data.types"
+                :key="index"
+              >
+                {{ item.type.name }}
+              </dt>
+            </dl>
+          </section>
+          <section id="right">
+            <ul class="stats-container">
+              <li
+                v-for="(stat, index) in store.data.stats"
+                :key="index"
+              >
+                <ProgressBar
+                  :title="stat.stat.name"
+                  :progress="stat.base_stat"
+                />
+              </li>
+            </ul>
+          </section>
         </div>
       </div>
     </div>
@@ -33,8 +75,11 @@
 </template>
 
 <script setup lang="ts">
-import { ref, defineEmits } from 'vue';
+import { ref } from 'vue';
 import { PokemonStore } from '../../store/PokemonStore';
+import { formatPokemonId, decimetersToMeters, hectogramsToKilograms } from '../../service/utils';
+
+import ProgressBar from '../ProgressBar/ProgressBar.vue';
 
 const store = PokemonStore();
 

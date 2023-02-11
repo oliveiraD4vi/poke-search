@@ -9,15 +9,14 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    cursor: pointer;
 
     /* From https://css.glass */
     background: rgba(34, 34, 34, 0.68);
-    border-radius: 16px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(34, 34, 34, 0.3);
 
     .raw-image {
       height: 100px;
@@ -48,6 +47,32 @@
         border: 1px solid $white-900;
         border-radius: 4px;
         text-transform: uppercase;
+      }
+    }
+
+    .modal-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      cursor: pointer;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 35px;
+      color: $white-900;
+      border: none;
+      text-transform: uppercase;
+      font-weight: bold;
+
+      // Background animado
+      background: $background;
+      background-size: $background-width 100%;
+      animation: gradient-background 30s linear infinite;
+
+      img {
+        width: 16px;
       }
     }
   }
