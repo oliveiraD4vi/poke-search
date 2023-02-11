@@ -14,8 +14,7 @@
 
   .menu-items {
     list-style: none;
-    display: grid;
-    grid-template-columns: 33% 33% 33%;
+    display: flex;
     gap: 0.5em;
     margin: 0;
 

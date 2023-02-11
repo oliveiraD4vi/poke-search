@@ -108,12 +108,11 @@ body {
 }
 
 #main-wrapper {
-  display: grid;
+  display: block;
   gap: 1em;
 
   main {
-    display: grid;
-    place-items: center;
+    display: block;
     min-height: 70vh;
   }
 }
@@ -127,5 +126,20 @@ body {
 @media only screen and (min-width: 992px) {
   #app {
     width: 50%;
+  }
+}
+
+// Skeleton Loading
+.skeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+  border-radius: 50%;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: #ffb600;
+  }
+  100% {
+    background-color: #ff4800;
   }
 }

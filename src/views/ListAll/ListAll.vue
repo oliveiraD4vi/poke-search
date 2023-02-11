@@ -1,7 +1,16 @@
 <template>
   <div class="list-all-container">
+    <Loading v-if="loading" />
+
+    <p
+      v-else-if="error"
+      class="error-message"
+    >
+      <span>Sorry! We are having some trouble</span>
+    </p>
+
     <Render
-      v-if="items"
+      v-else-if="items"
       :items="items"
     />
   </div>
@@ -13,11 +22,17 @@ import { fetch } from '../../service/api';
 import { Pokemon } from '../../types/Pokemon';
 
 import Render from '../../components/Render/Render.vue';
+import Loading from '../../components/Loading/Loading.vue';
 
 const error = ref<boolean>(false);
 const items = ref<Pokemon[]>();
+const loading = ref<boolean>(false);
+const disabled = ref<boolean>(false);
 
 const getAll = async () => {
+  loading.value = true;
+  disabled.value = true;
+
   await fetch.getAllPokemon()
   .then(async (response) => {
     if (!response.error) {
@@ -30,11 +45,13 @@ const getAll = async () => {
       );
 
       error.value = false;
-      items.value = [
-        ...pokemonList,
-      ];
+      items.value = pokemonList;
+      loading.value = false;
+      disabled.value = false;
     } else {
       error.value = true;
+      loading.value = false;
+      disabled.value = false;
     }
   });
 };
