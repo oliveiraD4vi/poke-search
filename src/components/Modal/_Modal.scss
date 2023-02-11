@@ -1,0 +1,158 @@
+.wrapper {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 98;
+  width: 100vw;
+  height: 100vh;
+  background-color:rgba(0,0,0,0.5);
+}
+
+.modal {
+  z-index: 99;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  width: 80vw;
+  min-height: 200px;
+  border-radius: 5px;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.4px);
+  -webkit-backdrop-filter: blur(8.4px);
+  border: 1px solid rgba(255, 255, 255, 0.32);
+
+  .body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: $text-color;
+
+    header {
+      display: flex;
+      justify-content: right;
+      padding: 15px;
+
+      .raw-image {
+        height: 200px;
+        position: absolute;
+        top: -130px;
+        left: 20px;
+        z-index: 2;
+      }
+
+      .close-btn {
+        background-color: transparent;
+        border: none;
+        padding: 0 15px;
+        cursor: pointer;
+      }
+    }
+
+    .content {
+      height: 100%;
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+
+      #left {
+        text-align: center;
+
+        .calc-container {
+          margin: 10px 0;
+          display: grid;
+          grid-template-columns: 50% 50%;
+          place-items: center;
+
+          .calc-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+
+            img {
+              width: 16px;
+            }
+          }
+        }
+
+        .types {
+          margin: 15px 0;
+          display: flex;
+          justify-content: center;
+          gap: 10px;
+
+          dt {
+            padding: 6px 10px;
+            font-size: 12px;
+            border: 1px solid $black-900;
+            border-radius: 4px;
+            text-transform: uppercase;
+          }
+        }
+      }
+
+      #right {
+        text-align: center;
+
+        .stats-container {
+          text-align: left;
+          display: grid;
+          gap: 0.5em;
+        }
+      }
+
+      h1 {
+        font-size: 24px;
+        margin-top: 10px;
+
+        &::first-letter {
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    width: 60%;
+
+    .body {
+      .content {
+        display: grid;
+        grid-template-columns: 20% 60%;
+        gap: 2em;
+        text-align: left;
+
+        #left {
+          text-align: left;
+
+          .calc-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .calc-item {
+              width: 100%;
+              justify-content: left;
+            }
+          }
+        }
+
+        #right {
+          text-align: left;
+          padding-left: 20px;
+          border-left: 1px solid $black-900;
+        }
+      }
+    }
+  }
+
+  @media only screen and (min-width: 992px) {
+    width: 40%;
+  }
+}

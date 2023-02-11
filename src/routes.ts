@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import Home from "@/views/Home/Home.vue";
-import About from "@/views/About/About.vue";
+import Home from "./views/Home/Home.vue";
+import ListAll from "./views/ListAll/ListAll.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -12,10 +12,15 @@ const router = createRouter({
       component: Home,
     },
     {
-      path: "/about",
-      name: "about",
-      component: About,
-    }
+      path: "/list/all",
+      name: "listall",
+      component: ListAll,
+    },
+    {
+      path: "/:pathMatch(.*)*",
+      name: "not-found",
+      component: Home,
+    },
   ],
 });
 

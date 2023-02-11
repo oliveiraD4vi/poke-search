@@ -1,0 +1,34 @@
+footer {
+  border-top: 1px solid $grey-500;
+  padding-top: 15px;
+  display: flex;
+  align-items: top;
+  justify-content: space-between;
+
+  h4 {
+    font-weight: 400;
+    color: $white-900;
+
+    a {
+      font-weight: 600;
+      color: $white-900;
+      text-decoration: none;
+
+      &:focus {
+        color: $grey-300;
+      }
+    }
+  }
+
+  .social-media {
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 50% 50%;
+
+    .social-media-item {
+      img {
+        width: 1.5em;
+      }
+    }
+  }
+}
