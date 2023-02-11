@@ -1,6 +1,9 @@
 <template>
   <div class="card-container">
-    <section class="content">
+    <section
+      class="content"
+      @click="onClick"
+    >
       <img
         class="raw-image"
         :class="{ skeleton: skeleton }"
@@ -29,7 +32,9 @@
 <script setup lang="ts">
 import { PropType, ref } from 'vue';
 import { Pokemon } from '../../types/Pokemon';
+import { PokemonStore } from '../../store/PokemonStore';
 
+const store = PokemonStore();
 const skeleton = ref<boolean>(true);
 
 const props = defineProps({
@@ -38,6 +43,10 @@ const props = defineProps({
     required: true,
   },
 });
+
+const emit = defineEmits<{
+  (e: 'close', value: boolean): void
+}>();
 
 const URL = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${props.data.id}.png`;
 
@@ -53,6 +62,12 @@ const formatPokemonId = (id: number) => {
 
 const onLoad = (): void => {
   skeleton.value = false;
+};
+
+const onClick = (): void => {
+  store.setUrl(URL);
+  // store.setData(props.data);
+  emit('close', true);
 };
 </script>
 

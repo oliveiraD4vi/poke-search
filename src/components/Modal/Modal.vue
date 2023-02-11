@@ -10,7 +10,7 @@
           <img
             class="raw-image"
             :class="{ skeleton: skeleton }"
-            src="../../assets/png/logo-pokemon.png"
+            :src="store.url"
             alt=""
             @load="onLoad"
           >
@@ -25,7 +25,7 @@
           </button>
         </header>
         <div className="content">
-          content
+          {{ store.data.name }}
         </div>
       </div>
     </div>
@@ -34,6 +34,9 @@
 
 <script setup lang="ts">
 import { ref, defineEmits } from 'vue';
+import { PokemonStore } from '../../store/PokemonStore';
+
+const store = PokemonStore();
 
 defineEmits<{
   (e: 'close', value: false): void
