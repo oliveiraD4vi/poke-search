@@ -44,6 +44,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { fetch } from '../../service/api';
+import { parseEvolutionChain } from '../../service/utils';
 import { Pokemon } from '../../types/Pokemon';
 
 import Render from '../../components/Render/Render.vue';
@@ -52,14 +53,58 @@ const error = ref<boolean>(false);
 const query = ref<string>('');
 const items = ref<Pokemon[]>();
 
+const getEvolutionChain = async (url: string) => {
+  const response = await fetch.get(url);
+
+  if (!response.error) {
+    error.value = false;
+    return response.data;
+  } else {
+    error.value = true;
+    return false;
+  }
+}
+
+const getSpecies = async (id: number) => {
+  const response = await fetch.getSpecies(id);
+
+  if (!response.error) {
+    error.value = false;
+    return response.data;
+  } else {
+    error.value = true;
+    return false;
+  }
+}
+
 const onSubmit = async () => {
+  items.value = [];
+
   await fetch.getPokemon(query.value.toLowerCase())
-  .then((response) => {
+  .then(async (response) => {
     if (!response.error) {
-      error.value = false;
-      items.value = [
-        response.data,
-      ];
+      const species = await getSpecies(response.data.id);
+      if (species) {
+        const evolution = await getEvolutionChain(species.evolution_chain.url);
+
+        if (evolution) {
+          const chain = await parseEvolutionChain(evolution.chain);
+
+          if (chain.length) {
+            error.value = false;
+            items.value = chain;
+          } else {
+            items.value = [];
+            error.value = true;
+          }
+        } else {
+          items.value = [];
+          error.value = true;
+        }
+      } else {
+        items.value = [];
+        error.value = true;
+      }
     } else {
       items.value = [];
       error.value = true;
