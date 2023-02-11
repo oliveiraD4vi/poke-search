@@ -2,6 +2,10 @@
 
 <h4 align="center"> Application for searching and listing pokemons using PokéAPI </h4>
 
+## Screenshot
+
+![Screenshot](https://raw.githubusercontent.com/oliveiraD4vi/poke-search/main/public/screenshot.png "Screenshot")
+
 ## Good to know
 
 This project uses [Commitzen](https://github.com/commitizen/cz-cli) to ensure that git commit messages are formatted in a consistent way. Here is the stack used for this project:
@@ -40,6 +44,6 @@ Doing that you will have the app running in development mode.
 
 ## Features
 
-- Search Pokémon for name
-- Search page by page in a list of all pokémons
-- See the Pokémon information on click
+- Search Pokémon for name;
+- Search page by page in a list of all pokémons;
+- See the Pokémon information on click.
