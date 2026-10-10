@@ -1,13 +1,8 @@
-import { createApp } from 'vue';
+import "@fontsource-variable/bricolage-grotesque";
 import { createPinia } from "pinia";
+import { createApp } from "vue";
+import App from "./App.vue";
+import { router } from "./router";
+import "./styles.css";
 
-import App from './App.vue';
-import router from "./routes";
-
-import './assets/scss/global.scss';
-
-const app = createApp(App);
-
-app.use(router);
-app.use(createPinia());
-app.mount('#app');
+createApp(App).use(createPinia()).use(router).mount("#app");

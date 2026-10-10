@@ -1,51 +1,39 @@
-<h1 align="center"> Poké Search </h1>
+# Poké Search
 
-<h4 align="center"> Application for searching and listing pokemons using PokéAPI </h4>
+Pokédex com as nove gerações e o jogo **Quem é esse Pokémon?**, em **português e inglês**
+(`?lang=pt` ou `?lang=en` na URL).
 
-## Screenshot
+**Acesse:** [pokesearch.coaladev.com.br](https://pokesearch.coaladev.com.br)
 
-![Screenshot](https://raw.githubusercontent.com/oliveiraD4vi/poke-search/main/public/screenshot.png "Screenshot")
+- **Pokédex:** busca por nome ou número, filtros por tipo e geração, e detalhe com tipos,
+  altura, peso, habilidades e atributos base. Busca, filtros e Pokémon aberto ficam na URL.
+- **Quem é esse Pokémon?:** adivinhe pela silhueta, escolhendo entre quatro nomes ou digitando.
+  Três vidas, pontos maiores com sequências de acertos, dica opcional e recorde por regras.
 
-## Good to know
+## Como funciona
 
-This project uses [Commitzen](https://github.com/commitizen/cz-cli) to ensure that git commit messages are formatted in a consistent way. Here is the stack used for this project:
+Os dados vêm da [PokéAPI](https://pokeapi.co), guardados em `src/data/pokemon.json` por
+`npm run snapshot` (uma consulta GraphQL), então o app não depende da API em tempo real. As
+imagens passam por `/sprites/`, que em produção o servidor guarda em cache.
 
-- [Vite](https://vitejs.dev/)
-- [Vue](https://vuejs.org/)
-- [Typescript](https://www.typescriptlang.org/)
-- [SCSS](https://sass-lang.com/)
-- [PokéAPI](https://pokeapi.co/)
+## Stack
 
-You can see this running here: [Deploy](https://poke-search-xi.vercel.app/)
+- [Vue 3](https://vuejs.org), TypeScript, [Vue Router](https://router.vuejs.org) e [Pinia](https://pinia.vuejs.org)
+- [Vite](https://vite.dev)
+- CSS próprio, sem biblioteca de componentes
 
-To clone and run this application, you'll need [Git](https://git-scm.com) installed on your computer.
-
-## How To Use
-
-After cloning the repository use your package manager to install the dependencies with the following
+## Rodando
 
 ```bash
-# yarn
-yarn
-
-# npm
 npm install
+npm run dev       # http://localhost:5173
+npm run build     # gera dist/
 ```
-With the project dependencies properly installed, run
+
+Com Docker (em produção, as imagens em `/sprites/` são servidas por um proxy na frente do
+container):
 
 ```bash
-# yarn
-yarn dev
-
-# npm
-npm run dev
+docker build -t poke-search .
+docker run -p 4704:80 poke-search
 ```
-Doing that you will have the app running in development mode.
-
-----
-
-## Features
-
-- Search Pokémon for name;
-- Search page by page in a list of all pokémons;
-- See the Pokémon information on click.
